@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Jotto
+### A React / Redux app used to demonstrate testing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Branches
 
-## Available Scripts
+*  `master`
 
-In the project directory, you can run:
+  This branch represents the project at the end of the instructional videos, without any of the challenges completed.
 
-### `yarn start`
+* `jotto-challenges`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  [This branch](https://github.com/flyrightsister/udemy-react-testing-projects/tree/jotto-challenges/jotto) contains solutions to the challenges. You can also find challenge solutions in the [SOLUTIONS for Jotto Redux Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS%20for%20Jotto%20Redux%20Challenges) folder.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Challenges
 
-### `yarn test`
+### 1. Number of Guesses
+  ![Number of Guesses Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/readme-images/number-of-guesses_wireframe.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  * _Note_: Try to accomplish this _without_ adding a new piece of state!
+  * Add “guess number” column to the "guessed words" table
+    * The first guess should show 1, second guess 2, etc.
+  * Add a component that displays total guesses as shown in wireframe
 
-### `yarn build`
+### 2. Reset Game
+  ![Reset Game Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/readme-images/new-game_wireframe.png)
+  * Create a “New word” button component
+    * only display after successful guess
+  * Upon click, reset the game with a new word from the server
+  * _Note_: This can be done with a connected component (which lends itself to state testing similar to `Input.js`) or with an unconnected component which receives the action creator from the parent `App.js` component (which will require unit testing for action creators and reducers instead, as using a store with an unconnected component is not covered in this course). The solution in the `jotto-challenges` branch covers the second approach.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. “Give up” Button
+  ![Give Up Button Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/readme-images/give-up-button_wireframe.png)
+  ![After Give Up Click Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/readme-images/after-give-up_wireframe.png)  
+  
+  * Create a “Give up” button
+    * only display when word has not been guessed correctly
+  * Upon click:
+    * Show secret word
+    * Display "better luck next time" message
+    * Display “new word” button component
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 4. User inputs secret word
+  ![Enter Secret Word Button Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/readme-images/enter-secret-word_wireframe.png)  
+  ![Secret Word Entry Form Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/readme-images/secret-word-entry-form_wireframe.png)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  * _Note: This one is quite involved, with a new piece of state, Redux Thunk, and testing that an action creator receives the correct argument. Not for the faint of heart! It is great for using existing tests to see whether new code breaks old functionality._
+  * Add a button for the user to input the secret word
+    * This way, the user can play against a friend
+  * After submission, the game should use the user’s secret word, not a word from the server
+  * This button should disapppear once the user has nonzero `guessedWords`
+    * Should disappear whether the word came from the server or user input
 
-### `yarn eject`
+### 5. Random Word Server Error
+  ![Random Word Server Error Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-redux/readme-images/random-word-server-error_wireframe.png) 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  * Display an error if:
+    * There’s a problem contacting the “random word” server
+    * The server responds with status 4xx or 5xx
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 6. Use Wordnik to get secret word
+  * Get a [Wordnik auth token](http://developer.wordnik.com/)
+  * Use the [words/randomWord](http://developer.wordnik.com/docs.html) endpoint (instead of the random word server that came with this course)
+ 
+## Credits
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
