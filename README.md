@@ -1,16 +1,6 @@
 # Jotto
 ### A React / Redux app used to demonstrate testing
 
-## Branches
-
-*  `master`
-
-  This branch represents the project at the end of the instructional videos, without any of the challenges completed.
-
-* `jotto-challenges`
-
-  [This branch](https://github.com/flyrightsister/udemy-react-testing-projects/tree/jotto-challenges/jotto) contains solutions to the challenges. You can also find challenge solutions in the [SOLUTIONS for Jotto Redux Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS%20for%20Jotto%20Redux%20Challenges) folder.
-
 ## Challenges
 
 ### 1. Number of Guesses
